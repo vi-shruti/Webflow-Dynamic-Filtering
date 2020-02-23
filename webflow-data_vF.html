@@ -1,0 +1,24 @@
+<script>
+  $(function() {
+      $("div.level-marker").each(function(index, element) {
+        var myclass = $(this).text();
+        var mytarget = $(this).parent();
+        mytarget.addClass(myclass);
+    });
+
+    $("div.w-dyn-item").click(function() {
+        var val = $(this).text();
+        var levelnum = val.substring(6);
+        $("div.level-marker").each(function(index, element) {
+            var myclass = $(this).text();
+            var mytarget = $(this).parent();
+            var answerlevelnum = myclass.substring(6);
+            if (answerlevelnum == levelnum){
+                mytarget.show();
+            } else {
+                mytarget.hide();
+            }
+            });
+        });
+    });
+</script>
